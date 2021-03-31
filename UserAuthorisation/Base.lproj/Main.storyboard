@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="zyv-us-AZx">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="zyv-us-AZx">
                                 <rect key="frame" x="60" y="155" width="294" height="204"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="XsQ-FB-b2c">
@@ -36,12 +36,12 @@
                                                     <constraint firstAttribute="height" constant="40" id="jXH-rA-kn1"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fJ-i2-K6G">
-                                        <rect key="frame" x="0.0" y="123" width="294" height="27"/>
+                                        <rect key="frame" x="0.0" y="110" width="294" height="53"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Log In"/>
                                         <connections>
@@ -56,11 +56,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="137" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <state key="normal" title="Forgot User Name?"/>
+                                                <connections>
+                                                    <action selector="alertFogotUserName" destination="BYZ-38-t0r" eventType="touchUpInside" id="S42-dr-OOc"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFu-tf-LcL">
                                                 <rect key="frame" x="157" y="0.0" width="137" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <state key="normal" title="Forgot Password"/>
+                                                <connections>
+                                                    <action selector="alertForgotPassword" destination="BYZ-38-t0r" eventType="touchUpInside" id="KUf-g9-w0Z"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -94,21 +100,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="68" translatesAutoresizingMaskIntoConstraints="NO" id="fMC-lP-CG4">
-                                <rect key="frame" x="144" y="155" width="126" height="118"/>
+                                <rect key="frame" x="144" y="155" width="126" height="142"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zTx-Nz-VRc">
-                                        <rect key="frame" x="0.0" y="0.0" width="126" height="14"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zTx-Nz-VRc">
+                                        <rect key="frame" x="0.0" y="0.0" width="126" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="xXJ-Di-IqP"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ze-aM-hYD">
-                                        <rect key="frame" x="0.0" y="82" width="126" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ze-aM-hYD">
+                                        <rect key="frame" x="0.0" y="102" width="126" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="5Y9-ov-Y7w"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Log out">
                                             <color key="titleColor" red="1" green="0.098359620780000004" blue="0.4280782971" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <action selector="logOutActionButton" destination="DjL-8a-2fy" eventType="touchUpInside" id="lO2-Dj-YtL"/>
+                                            <segue destination="Va2-BP-WeP" kind="unwind" unwindAction="unwindFor:" id="hxi-Ec-eED"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -129,6 +141,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcr-yi-6Ze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Va2-BP-WeP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="906" y="104"/>
         </scene>

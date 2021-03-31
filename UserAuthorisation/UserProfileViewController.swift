@@ -21,8 +21,6 @@ class UserProfileViewController: UIViewController {
     
   
     
-    @IBAction func logOutActionButton() {
-        dismiss(animated: true)
-    }
+    
     
 }
