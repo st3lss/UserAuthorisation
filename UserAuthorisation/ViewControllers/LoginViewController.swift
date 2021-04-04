@@ -14,8 +14,16 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordTF: UITextField!
     
     // MARK: - Private properties
-    private let user = "test"
-    private let password = "123"
+
+    
+    private let user = Person().userLogin
+    private let password = Person().userPassword
+    private let person = Person().person
+    private let born = Person().personBorn
+    private let died = Person().personDied
+    private let movement = Person().personMovement
+    private let biography = Person().personBiography
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +35,17 @@ class LoginViewController: UIViewController {
         if let tabBarController = segue.destination as? UITabBarController {
             tabBarController.viewControllers?.forEach {
                 if let userProfileVC = $0 as? UserProfileViewController {
-                    userProfileVC.userNameProfile = user
+                    userProfileVC.userNameProfile = person
+                } else if let aboutUser = $0 as? AboutUser {
+                    aboutUser.userB = born
+                    aboutUser.userD = died
+                    aboutUser.userM = movement
+                } else if let userHobby = $0 as? UserHobby  {
+                    userHobby.userBio = biography
                 }
             }
         }
+        
     }
     
 
