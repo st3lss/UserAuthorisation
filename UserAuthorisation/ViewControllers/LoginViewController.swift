@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     private let died = Person().personDied
     private let movement = Person().personMovement
     private let biography = Person().personBiography
-    
+    private let painting = Person().painting
     
     override func viewDidLoad() {
         super.viewDidLoad()
